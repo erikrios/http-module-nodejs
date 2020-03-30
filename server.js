@@ -1,8 +1,8 @@
 var http = require('http');
 
 var server = http.createServer(function (request, response) {
-    response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.write('Hello, <b>World!</b>');
+    response.writeHead(200, { 'Content-Type': 'application/json' });
+    response.write('{"message" : "Hello, World!"}');
     response.end();
 });
 
