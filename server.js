@@ -2,7 +2,17 @@ var http = require('http');
 
 var server = http.createServer(function (request, response) {
     response.writeHead(200, { 'Content-Type': 'text/html' });
-    response.write('URL: ' + request.url);
+    switch (request.url) {
+        case '/about':
+            response.write('This is about page.');
+            break;
+        case '/profile':
+            response.write('This is profile page.');
+            break;
+        case '/product':
+            response.write('This is product page.');
+            break;
+    }
     response.end();
 });
 
