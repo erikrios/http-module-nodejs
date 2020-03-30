@@ -12,6 +12,8 @@ var server = http.createServer(function (request, response) {
         case '/product':
             response.write('This is product page.');
             break;
+        default:
+            response.write('404: Page not found.');
     }
     response.end();
 });
