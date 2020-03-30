@@ -1,7 +1,9 @@
 var http = require('http');
 
 var server = http.createServer(function (request, response) {
-    response.end('Hi, selamat datang di Node.js');
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    response.write('Hello, <b>World!</b>');
+    response.end();
 });
 
 server.listen(3000);
