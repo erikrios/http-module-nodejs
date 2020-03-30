@@ -1,21 +1,11 @@
 var http = require('http');
+var url = require('url');
 
 var server = http.createServer(function (request, response) {
     response.writeHead(200, { 'Content-Type': 'text/html' });
-    switch (request.url) {
-        case '/about':
-            response.write('This is about page.');
-            break;
-        case '/profile':
-            response.write('This is profile page.');
-            break;
-        case '/product':
-            response.write('This is product page.');
-            break;
-        default:
-            response.write('404: Page not found.');
-    }
-    response.end();
+    var q = url.parse(request.url, true).query;
+    var txt = 'Kata kunci: ' + q.keyword;
+    response.end(txt);
 });
 
 server.listen(3000);
